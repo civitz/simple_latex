@@ -1,0 +1,59 @@
+%document class
+\documentclass[a4paper,10pt]{article}
+%input encoding convetion, leave this for windows 
+\usepackage[latin1]{inputenc}
+%language (for syllabation)
+\usepackage[english]{babel}
+%makes internal and external references clickable
+\usepackage{hyperref}
+%tools for headings
+\usepackage{fancyhdr}
+\usepackage{fancybox}
+%tools for images
+\usepackage{graphicx}
+\usepackage{subfigure}
+%math symbols
+\usepackage{amsmath}
+\usepackage{amssymb}
+%reference settings
+\hypersetup{colorlinks=true, linkcolor=black}
+%graphics settings
+\graphicspath{{./img/}}
+
+
+%squeeze ALL the gaps
+% \setlength{\topmargin}{0.1cm}
+% \setlength{\topskip}{0.1cm}
+%  \setlength{\parskip}{0.01cm plus0mm minus0mm}
+% \setlength{\abovedisplayskip}{0.1cm}
+% \setlength{\belowdisplayskip}{0.1cm}
+% \setlength{\textfloatsep}{0.3cm}
+% \allowdisplaybreaks
+
+
+\newcommand{\singlefigure}[3]{
+\begin{figure}[htbp!]
+ \centering
+ \includegraphics[keepaspectratio,width=\linewidth]{#1}
+ \caption{\label{#3}#2}
+\end{figure}
+}
+
+\newcommand{\doublefigure}[6]{
+\begin{figure}[htbp!]
+\centering
+\hspace*{-0.2\linewidth}%
+\begin{minipage}{.7\textwidth}
+  \centering
+  \includegraphics[keepaspectratio,width=0.95\linewidth]{#1}
+  \caption{\label{#3}#2}
+  
+\end{minipage}%
+\begin{minipage}{.7\textwidth}
+  \centering
+  \includegraphics[keepaspectratio,width=0.95\linewidth]{#4}
+  \caption{\label{#6}#5}
+\end{minipage}
+\end{figure}
+}
+

@@ -1,0 +1,60 @@
+\input{simple}
+
+%opening
+\title{Simple \LaTeX{} Examples}
+\author{Roberto Piva (civitz)}
+\begin{document}
+
+\maketitle
+
+% \begin{abstract}
+% Qui l'abstract
+% \end{abstract}
+\tableofcontents
+\section{Getting things done easily}
+\label{sec:gtde}
+\subsection{Using the template}
+\begin{enumerate}
+ \item Copy the \verb!simple.tex! file of this package in the root directory of your \LaTeX{} document. 
+ \item Use \verb!\input{simple}! to import the template and the necessary packages.
+ \item Write your document like a boss
+\end{enumerate}
+As you may wonder: yes, this document is made with that template. 
+I'll try to keep this exact document as simple as possible, so that my friends (and possibly yours) 
+can use this document's tex file as a reference for their adventure in the \LaTeX{} world.
+
+\subsection{Inserting an image}
+\begin{verbatim}
+ \singlefigure{testimage.png}{A single figure}{fig:single}
+\end{verbatim}
+The \verb!\singlefigure! command lets you easily insert an image in a document.
+You must provide 3 parameters to the command: 
+\begin{description}
+ \item[Image name] 
+    Images must be in the \verb!/img/! subfolder.
+ \item[Figure caption] 
+    The caption you want to appear below the image.
+ \item[Figure reference label] 
+    The label you want to assign to reference that figure in the document. 
+    This will be made optional in figure versions of this template.
+\end{description}
+\singlefigure{testimage.png}{A single figure.}{fig:single}
+Figure \ref{fig:single} has been inserted with the above command.
+
+Keep in mind that images are inserted by keeping the aspect ratio and making their 
+width fit the line width. 
+This way thin images may become very big: 
+this will be fixed in the next versions of the template. 
+\subsection{Inserting two images side-by-side}
+\begin{verbatim}
+ \doublefigure{testimage.png}{Foo.}{fig:foo}{anotherimage.png}{Bar.}{fig:bar}
+\end{verbatim}
+The \verb!\doublefigure! command lets you insert two figures side by side, with one caption and label each.
+
+The syntax is the same as the \verb!\singleimage! command, but doubled, as you may guess by the example. 
+As before, figure \ref{fig:foo} and figure \ref{fig:bar} has been insert by the command above.
+
+\doublefigure{testimage.png}{Foo.}{fig:foo}{anotherimage.png}{Bar.}{fig:bar}
+
+
+\end{document}
