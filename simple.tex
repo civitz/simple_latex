@@ -57,3 +57,33 @@
 \end{figure}
 }
 
+% ugly, but the most compatible version I've found
+\newcommand\Originalauthor{}
+\newcommand{\MyAuthor}[1]{}
+\let\Originalauthor\author
+\renewcommand*{\author}[1]{%
+  \Originalauthor{#1}%
+  \renewcommand*{\MyAuthor}{#1}%
+}
+
+% yeah, I know
+\newcommand\Originaltitle{}
+\newcommand{\MyTitle}[1]{}
+\let\Originaltitle\title
+\renewcommand*{\title}[1]{%
+  \Originaltitle{#1}%
+  \renewcommand*{\MyTitle}{#1}%
+}
+
+\newcommand{\awesomepagelayout}{
+\pagestyle{fancy}
+\fancyhead[R]{\thesection \slshape \rightmark} %header right
+\fancyhead[C]{}  %header center
+\fancyhead[L]{\MyAuthor} %header left
+\fancyfoot[L]{\MyTitle} %footer left
+\fancyfoot[C]{\thepage} %footer center 
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\addtolength{\headheight}{0.4pt}
+\addtolength{\footskip}{0.4pt}
+}
